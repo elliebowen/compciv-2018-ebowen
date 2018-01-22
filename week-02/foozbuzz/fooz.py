@@ -1,14 +1,17 @@
 
-#input is used to read integers 
-countNumber = input("What number do you want to count to?")
-#fob(countNumber)
 
-#def fob(countNumber) 
-for x in range(countNumber) :
-    print (x) 
-    if x % 3 == 0:
-        print('Fizz')
-    elif x % 5 == 0:
-        print('Buzz')
-    elif x % 3 == 0 and x % 5 == 0:
-        print('FizzBuzz')
+def fob(countNumber):
+    #stuff goes here
+    for x in range(1, countNumber + 1):
+        if x % 3 == 0 and x % 5 == 0:
+            print(x, 'FizzBuzz')
+        elif x % 3 == 0:
+            print(x, 'Fizz')
+        elif x % 5 == 0:
+            print(x, 'Buzz')
+        else:
+            print(x)
+
+
+
+
