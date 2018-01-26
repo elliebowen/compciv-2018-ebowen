@@ -10,16 +10,20 @@ def print_hedz(url='https://wgetsnaps.github.io/stanford-edu-news/news/simple.ht
 
 
 def extract_headline_text(txt):
-   hedtxt = txt.split('<')
-   hedtxt[2].split('<')[0]
+   headlist = txt.split('>')
+   headtxt = headlist[2]
+   frags = headtxt.split('<')
+   headline = frags[0]
+   return headline 
                 
 
 def parse_headline_tags(txt):
-    lines = txt.splitLines()
-    list = []
+    lines = txt.splitlines()
+    headline_list = []
     for line in lines:
-        list.append(lines)
-    return list    
+        if 'h3' in line: 
+            headline_list.append(line)
+    return headline_list    
 
 
 def fetch_html(url):
