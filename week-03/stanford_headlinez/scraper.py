@@ -21,7 +21,7 @@ def parse_headline_tags(txt):
     lines = txt.splitlines()
     headline_list = []
     for line in lines:
-        if 'h3' in line: 
+        if '<h3><a' in line: 
             headline_list.append(line)
     return headline_list    
 
