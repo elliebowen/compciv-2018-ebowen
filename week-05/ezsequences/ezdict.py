@@ -88,7 +88,7 @@ def foo_f():
     """
     children_list = ez_dict['children']
     last_child = children_list[-1]
-    return last_child
+    return last_child         
 
 def foo_g():
     """
@@ -104,7 +104,7 @@ def foo_g():
     a = [ez_dict['spouse']]
     b = ez_dict['children']
     c = a + b
-    return c
+    return ','.join(c)
 
 def foo_h():
     """
@@ -112,7 +112,7 @@ def foo_h():
     """
     #'terms': [{'start_date': '2017-01-20',
                     # 'end_date': '2021-01-20'}]
-    start_date =  ez_dict['terms'][0]['start_date'] 
+    start_date  =  ez_dict['terms'][0]['start_date'] 
     return start_date
 
 
