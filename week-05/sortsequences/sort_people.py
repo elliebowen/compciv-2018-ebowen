@@ -22,10 +22,5 @@ def name_reverse_alpha():
 
 def country_then_age():
     def fooca(a):
-        country = []
-        age = []
-        for x in a: 
-            country = a['country']
-            age = str(a['age'])
-        return (country + age)
-    sorted(PEOPLE_LIST, key = fooca)
+        return [a['country'], a['age']]
+    return sorted(PEOPLE_LIST, key = fooca)
