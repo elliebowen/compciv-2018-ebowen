@@ -12,7 +12,6 @@ def as_absolute_value():
    anums = [abs(x) for x in NUMBER_LIST] 
    return sorted(anums) 
 
-
 def as_inverse_number():
     inums = [(1/x) for x in NUMBER_LIST]
     return sorted(inums)

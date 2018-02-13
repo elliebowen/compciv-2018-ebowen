@@ -10,23 +10,34 @@ STRING_LIST = [
     '199',
 ]
 '''
-
 def reverse_alpha():
+    """
+    return the list of strings sorted in
+    reverse alphabetical order.
+    """
+
     return sorted(STRING_LIST, reverse=True)
 
 
 def alpha_case_insensitive():
+    """
+    return the list of strings sorted in
+    alphabetical order, but without regard to
+    capitalization
+    """
+    # fill it out
     def foocap(a):
         for x in a:
-            a.upper(x)
-        return a
-    return sorted(STRING_LIST, key = foocap, reverse = False)
+            return a.upper()
+    return sorted(STRING_LIST, key = foocap)
+
 
 
 def by_longest_length():
-    def foolen(a):
+    def foolen(a): 
         return len(a)
-    return sorted(STRING_LIST, key = foolen, reverse = True)
+    return sorted(STRING_LIST, key = foolen, reverse=True)
+
 
 
 def filter_and_sort_number_strings():
@@ -38,13 +49,15 @@ def filter_and_sort_number_strings():
     https://www.geeksforgeeks.org/python-string-isnumeric-application/
     """
     # fill it out
-    def foonums(a):
-        strnums = []
+    snums = [] 
+    def foosnums(a):
         for x in a:
             if a.isnumeric():
-                strnums.append(str(a(x)))
-                return strnums
-    return sorted(STRING_LIST, key = foonums)
+                snums.append(a)
+        return snums     
+    return sorted(STRING_LIST, key = foosnums)
+
+
 
 def filter_and_sort_number_strings_as_numbers():
     """
@@ -56,10 +69,11 @@ def filter_and_sort_number_strings_as_numbers():
        into an actual number
     """
     # fill it out
-     def foonums(a):
-        nums = []
+    
+    nums = []
+    def foonums(a):
         for x in a:
             if a.isnumeric():
-                nums.append(int(a(x)))
-                return nums
+                nums.append(int(a))
+        return nums
     return sorted(STRING_LIST, key = foonums)
