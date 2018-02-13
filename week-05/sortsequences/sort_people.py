@@ -26,6 +26,6 @@ def country_then_age():
         age = []
         for x in a: 
             country = a['country']
-            age = a['age']
+            age = str(a['age'])
         return (country + age)
     sorted(PEOPLE_LIST, key = fooca)
