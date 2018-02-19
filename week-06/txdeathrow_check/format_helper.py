@@ -55,11 +55,9 @@ def calc_years_diff(start_date, end_date):
           will be enough precision. And leap years shouldn't make THAT much
           of a difference...
     """
-    date_start = datetime.strptime(start_date, '%b %d %Y %I:%M%p')
-    date_end = datetime.strptime(end_date, '%b %d %Y %I:%M%p')
-    int days = date_start - date_end
-    years_diff = days/365
-    return years_diff
+    date_start = datetime.strptime(start_date, '%Y-%m-%d')
+    date_end = datetime.strptime(end_date, '%Y-%m-%d')
+    return (date_start - date_end)/ 365
  
 def make_absolute_url(href):
     
