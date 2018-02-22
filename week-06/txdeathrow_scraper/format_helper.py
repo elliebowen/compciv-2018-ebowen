@@ -17,7 +17,7 @@ def txdate_to_iso(datestr):
 def calc_years_diff(start_date, end_date):
     date_start = datetime.strptime(start_date, '%Y-%m-%d')
     date_end = datetime.strptime(end_date, '%Y-%m-%d')
-    return (date_start - date_end)/ 365
+    return round((date_end - date_start).days / 365, 1)
  
 def make_absolute_url(href):
     return urljoin(data_helper.DATA_SRC_URL, href)

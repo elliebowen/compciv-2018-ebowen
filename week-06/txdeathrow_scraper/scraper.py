@@ -20,20 +20,20 @@ def get_and_parse_inmate_rows():
     rows = soup.select('tr')
     return rows[1:]
 
+
+
 def wrangle_inmate_data_from_tag(rowtag):
     d = {}
-    row = get_and_parse_inmate_rows() 
-    for r in row:
-        col = r.select('td')
-        d['tdcj_id'] = col[0].strip()
-        d['url'] = col[1].make_absolute_url.strip()
-        d['last_name'] = col[2].strip()
-        d['first_name'] = col[3].strip()
-        d['birthdate'] = col[4].txtdate_to_iso.strip()
-        d['gender'] = col[5].strip()
-        d['race'] = col[6].strip()
-        d['date_received'] = col[7].txtdate_to_iso.strip()
-        d['date_offense'] = col[8].txtdate_to_iso.strip()
-        d['age_at_offence'] = int(col[9].strip())
-        d['years_before_death_row'] = float(col[10].strip())
+    col = rowtag.select('td')
+    d['tdcj_id'] = col[0].text.strip()
+    d['url'] = make_absolute_url( col[1].select('a')[0].attrs['href']) 
+    d['last_name'] = col[2].text.strip()
+    d['first_name'] = col[3].text.strip()
+    d['birthdate'] = txdate_to_iso(col[4].text.strip())
+    d['gender'] = col[5].text.strip()
+    d['race'] = col[6].text.strip()
+    d['date_received'] = txdate_to_iso(col[7].text.strip())
+    d['date_offense'] = txdate_to_iso(col[8].text.strip())
+    d['age_at_offence'] = col[9].text
+    d['years_before_death_row'] = col[10].text
     return d
