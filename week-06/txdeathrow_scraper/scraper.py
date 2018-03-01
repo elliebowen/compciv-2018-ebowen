@@ -33,7 +33,8 @@ def wrangle_inmate_data_from_tag(rowtag):
     d['gender'] = col[5].text.strip()
     d['race'] = col[6].text.strip()
     d['date_received'] = txdate_to_iso(col[7].text.strip())
-    d['date_offense'] = txdate_to_iso(col[8].text.strip())
-    d['age_at_offence'] = col[9].text
-    d['years_before_death_row'] = col[10].text
+    d['date_offense'] = txdate_to_iso(col[9].text.strip())
+    d['county'] = col[8].text.strip()
+    d['age_at_offense'] = round(calc_years_diff(d['birthdate'], d['date_offense']))
+    d['years_before_death_row'] = calc_years_diff(d['date_offense'], d['date_received'])
     return d

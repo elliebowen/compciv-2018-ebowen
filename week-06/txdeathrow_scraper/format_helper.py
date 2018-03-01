@@ -5,13 +5,9 @@ from data_helper import DATA_SRC_URL
 from bs4 import BeautifulSoup
 
 def txdate_to_iso(datestr):
-    if len(datestr) == 10:
-        d = datestr[3:5]
-        y = datestr[-4:]
-        m = datestr[0:2]
-    else:
-        m, d, y = datestr.split('/')
-        y = '19' + y
+    m, d, y = datestr.split('/')
+    if len(y) == 2:
+       y = '19' + y
     return '-'.join([y,m,d])
 
 def calc_years_diff(start_date, end_date):
